@@ -7,7 +7,7 @@
 [![Dev Dependencies](https://david-dm.org/alexjoverm/typescript-library-starter/dev-status.svg)](https://david-dm.org/alexjoverm/typescript-library-starter?type=dev)
 [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg)](https://paypal.me/AJoverMorales)
 
-A starter project that makes creating a TypeScript library extremely easy.
+Modification of tap-ts-starter customized to translate ini files into json.
 
 ![](https://i.imgur.com/opUmHp0.png)
 

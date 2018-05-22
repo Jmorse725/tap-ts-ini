@@ -1,12 +1,14 @@
-# tap-ts-starter #
+# tap-ts-ini #
+
+Modification of tap-ts-starter customized to translate ini files into json.
 
 This is a [Singer](https://singer.io) tap built with TypeScript/javascript that runs in Node and produces JSON-formatted data following the [Singer spec](https://github.com/singer-io/getting-started/blob/master/SPEC.md), and most of the spec is reflected in [tap-types.ts](./src/tap-types.ts).
 
 This tap:
-- Scans a local folder, treating the files it finds there as emails (MIME), parsing them into JSON with [Nodemailer.Mailparser](https://nodemailer.com/extras/mailparser/)
+- Scans a local folder and parses them into JSON with [anyJson.decode](https://www.npmjs.com/package/any-json)
 - Outputs a schema along with the resulting json for each file
 
-This tap is also meant as a template to be forked for other uses. It separates the scanning of a resource collection (e.g. a folder) and the parsing of the individual resources (e.g. MIME files) into separate modules for easy drop-in replacement. A scanner module is included ([scan-dir.ts](./src/scan-dir.ts) for scanning local folders) and a parser module ([parse-mime.ts](./src/parse-mime.ts) for parsing emails) is included as well.
+This tap is also meant as a template to be forked for other uses. It separates the scanning of a resource collection (e.g. a folder) and the parsing of the individual resources (e.g. ini files) into separate modules for easy drop-in replacement. A scanner module is included ([scan-dir.ts](./src/scan-dir.ts) for scanning local folders) and a parser module ([parse-ini.ts](./src/parse-ini.ts) for parsing ini files) is included as well.
 
 This code path is documented [here](dist/docs-tap/index.html) (or [here](../docs-tap/index.html)).
 
@@ -23,7 +25,7 @@ This code path is documented [here](dist/docs-aws/index.html) (or [here](../docs
     * npm (installs with Node)
     * typescript - installed as a development dependency
     * serverless - `npm install -g serverless` to install globally
-* Clone: `git clone https://github.com/donpedro/tap-ts-starter.git`
+* Clone: `git clone https://github.com/jmorse724/tap-ts-ini.git`
     * After cloning the repo, be sure to run `npm install` to install npm packages
 * Debug: with [VScode](https://code.visualstudio.com/download) use `Open Folder` to open the project folder, then hit F5 to debug. This runs without compiling to javascript using [ts-node](https://www.npmjs.com/package/ts-node)
 * Test: `npm test` or `npm t`
