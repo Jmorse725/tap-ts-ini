@@ -151,6 +151,21 @@ Here are some projects that use `typescript-library-starter`:
 
 - [NOEL - A universal, human-centric, replayable event emitter](https://github.com/lifenautjoe/noel)
 
+## Compile Error fixes for May 21, 2018 Commit
+
+Error: src/tap-types.ts(29,3): error TS2564: Property 'stream' has no initializer and is not definitely assigned in the constructor.
+       src/tap-types.ts(35,3): error TS2564: Property 'key_properties' has no initializer and is not definitely assigned in the constructor.
+       src/tap-types.ts(40,3): error TS2564: Property 'schema' has no initializer and is not definitely assigned in the constructor.
+       src/tap-types.ts(48,3): error TS2564: Property 'stream' has no initializer and is not definitely assigned in the constructor.
+       src/tap-types.ts(52,3): error TS2564: Property 'record' has no initializer and is not definitely assigned in the constructor.
+       src/tap-types.ts(61,3): error TS2564: Property 'value' has no initializer and is not definitely assigned in the constructor.
+solution: Add '!' after properties on listed lines in tap-types.ts
+Cause: [Here](https://www.ryadel.com/en/ts2564-ts-property-has-no-initializer-typescript-error-fix-visual-studio-2017-vs2017/)
+
+Error: node_modules/@types/lodash/index.d.ts(12651,53): error TS2344: Type 'T' does not satisfy the constraint 'object'
+Solution: npm install -s @types/lodash@latest
+Cause: conflict with typescript 2.7 and loadash versions earlier than 4.14.103. Run solution even if displayed lodash version is higher.
+
 ## Credits
 
 Made with :heart: by [@alexjoverm](https://twitter.com/alexjoverm) and all these wonderful contributors ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):

@@ -1,6 +1,8 @@
 // went to node native nodejs promises
 //Promise = require("bluebird");
 
+console.log('s3-getfile running')
+
 import AWS = require('aws-sdk')
 import { S3 } from 'aws-sdk'
 //AWS.config.setPromisesDependency(Promise); // AWS will use bluebird promises since we overwrote global Promise var above with bluebird
@@ -23,12 +25,7 @@ export function getFilePromise(event: any) {
   // console.log("SES Notification:\n", JSON.stringify(sesNotification, null,
   // 2));
 
-  console.log(
-    'notificationKey: ',
-    notificationKey,
-    '   Bucket: ',
-    notification.bucket.name
-  )
+  console.log('notificationKey: ', notificationKey, '   Bucket: ', notification.bucket.name)
 
   // Retrieve the email from its bucket
   return s3

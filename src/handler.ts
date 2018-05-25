@@ -1,10 +1,12 @@
 /**
- * The exports in this file can be set as "handlers" (entry points) for AWS Lambda functions; 
- * e.g. module.exports.hello in handler.js is accessible as "handler.hello". 
- * 
- * For automated Serverless deployment this is setup is managed in [serverless.yml](../../serverless.yml). 
+ * The exports in this file can be set as "handlers" (entry points) for AWS Lambda functions;
+ * e.g. module.exports.hello in handler.js is accessible as "handler.hello".
+ *
+ * For automated Serverless deployment this is setup is managed in [serverless.yml](../../serverless.yml).
  * Search for handler.hello to see how is is done.
  */ /** hack for https://github.com/TypeStrong/typedoc/issues/603 */
+
+console.log('handler running')
 
 import getFile = require('./s3-getfile')
 

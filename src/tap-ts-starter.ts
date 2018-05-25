@@ -4,14 +4,25 @@
 export default class DummyClass {}
 /** hack for https://github.com/TypeStrong/typedoc/issues/603 */
 
-const anyjson = require('any-json')
-// const eep = anyjson.decode('feild, name\ndummy,peter', 'csv')
-// eep.then(function(jsonobj){
-//   console.log(jsonobj)
-// })
+var read = require('utils-fs-read-ini')
 
-console.log('working!')
-//console.log(eep)
+/*  utils-fs-read basic use
+
+var read = require( 'utils-fs-read-ini' );
+
+read( './testdata/ini/test.ini', onData );
+ 
+function onData( error, data ) {
+    if ( error ) {
+        console.error( error );
+    } 
+    else {
+        console.log( JSON.stringify(data) );
+    }
+}*/
+
+console.log('tap-ts-starter running')
+
 /**
  * This module is the entry point for local execution as a Singer tap (see the [spec](https://github.com/singer-io/getting-started/blob/master/SPEC.md))
  */
@@ -19,20 +30,17 @@ import * as configLoader from './tap-load-config'
 import * as parseIni from './parse-ini'
 import * as scanDir from './scan-dir'
 
-/** random note */
-
-/** random note 2
- *
- */
-configLoader
-  .loadConfig()
-  .then(function(configObjs) {
-    // run scanDir using parseMime as the parser for each item
-
+var globalClass = async () => {
+  try {
+    var configObjs = await configLoader.loadConfig()
     return scanDir.scanDir(configObjs, parseIni.parseItem)
-  })
-  .catch(function(error) {
-    // Handle errors
-    console.error('Error: ', error)
-    return error
-  })
+  } catch {
+    var error = (error: any) => {
+      // Handle errors
+      console.error('Error: ', error)
+      return error
+    }
+  }
+}
+
+globalClass()
